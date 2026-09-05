@@ -1,0 +1,53 @@
+---
+import type { Service } from '../content';
+import Section from './ui/Section.astro';
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+<main id="main">
+  <section class="bg-paper py-16 md:py-20">
+    <div class="mx-auto max-w-6xl px-4">
+      <p class="border-l-4 border-accent pl-3 text-xs font-bold uppercase tracking-widest text-accent">
+        {service.eyebrow}
+      </p>
+      <h1 class="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">{service.name}</h1>
+      <p class="mt-4 text-lg font-semibold">{service.tagline}</p>
+      <p class="mt-4 max-w-3xl text-base leading-relaxed text-mute">{service.description}</p>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2">
+        {service.groups.map((group) => (
+          <article class="rounded-sm border border-line bg-white p-6">
+            <h2 class="text-xl font-bold">{group.title}</h2>
+            <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-mute">
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Section eyebrow="Why us" title="Why choose HV Tech?">
+    <ul class="space-y-3">
+      {service.why.map((item) => (
+        <li class="border-l-4 border-accent pl-4 text-base text-ink">{item}</li>
+      ))}
+    </ul>
+  </Section>
+
+  <Section eyebrow="Contact" title="Talk to our engineers" tone="dark">
+    <p class="max-w-3xl text-base leading-relaxed text-white/80">{service.cta.text}</p>
+    <a
+      href={`/contact-us?interest=${service.slug}`}
+      class="mt-6 inline-block rounded-sm bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-hover"
+    >
+      {service.cta.label}
+    </a>
+  </Section>
+</main>
