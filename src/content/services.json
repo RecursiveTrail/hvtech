@@ -1,0 +1,113 @@
+[
+  {
+    "slug": "designing-fabrications",
+    "href": "/designing-fabrications",
+    "eyebrow": "Service",
+    "name": "Designing & Fabrications",
+    "tagline": "Custom Engineering. Precision Fabrication. End-to-End Solutions.",
+    "description": "At HV Tech, we specialize in turning concepts into real-world engineered solutions through expert designing and fabrication services. Whether you are starting from scratch or optimizing an existing product, our team ensures efficiency, innovation, and durability in every stage.",
+    "groups": [
+      {
+        "title": "CAD Designing",
+        "items": ["2D/3D mechanical drawings", "Electrical and circuit design layouts", "Product prototyping"]
+      },
+      {
+        "title": "Fabrication Services",
+        "items": ["Sheet metal cutting, bending, welding", "Custom enclosures and panel boxes", "Structural frameworks"]
+      },
+      {
+        "title": "Industrial Customization",
+        "items": ["Machine parts modification", "Custom-built control panels", "Retrofitting solutions"]
+      },
+      {
+        "title": "Assembly & Installation",
+        "items": ["On-site support for fabrication projects", "Modular system assembly", "Testing & quality assurance"]
+      }
+    ],
+    "why": [
+      "Experienced Design Engineers",
+      "Quality-First Fabrication Techniques",
+      "Quick Turnaround Time",
+      "Tailor-Made Industrial Solutions",
+      "On-Site Support Available"
+    ],
+    "cta": {
+      "label": "Get a Quote Today",
+      "text": "Interested in custom design or fabrication for your business?"
+    }
+  },
+  {
+    "slug": "repairing-maintenance",
+    "href": "/repairing-maintenance",
+    "eyebrow": "Service",
+    "name": "Repair & Maintenance",
+    "tagline": "Reliable Repairs. Preventive Maintenance. Industrial Support.",
+    "description": "HV Tech offers comprehensive repair and maintenance services to keep your operations running smoothly. We help businesses reduce downtime, extend equipment life, and ensure safety through responsive, expert service.",
+    "groups": [
+      {
+        "title": "Industrial Equipment Repair",
+        "items": ["Mechanical part replacements", "Motor rewinding and servicing", "Pump, valve, and gearbox repairs"]
+      },
+      {
+        "title": "Electrical Maintenance",
+        "items": ["Wiring inspections and repairs", "Panel maintenance and troubleshooting", "Circuit breaker testing and replacement"]
+      },
+      {
+        "title": "Control System Services",
+        "items": ["PLC troubleshooting and reprogramming", "HMI screen repairs", "Sensor and actuator checks"]
+      },
+      {
+        "title": "Preventive & AMC Support",
+        "items": ["Scheduled equipment health checks", "Annual Maintenance Contracts (AMC)", "Documentation & compliance reports"]
+      }
+    ],
+    "why": [
+      "Quick response time",
+      "Trained technical team",
+      "Genuine spare parts",
+      "Custom AMC packages",
+      "On-site and remote support"
+    ],
+    "cta": {
+      "label": "Request a Service",
+      "text": "Need urgent repairs or regular maintenance for your equipment? Let’s get started."
+    }
+  },
+  {
+    "slug": "onsite-testing",
+    "href": "/onsite-testing",
+    "eyebrow": "Service",
+    "name": "On-Site Testing",
+    "tagline": "Precision Testing. Field Diagnostics. Real-Time Results.",
+    "description": "HV Tech offers expert on-site testing services to help businesses verify the safety, functionality, and efficiency of their industrial systems and electrical equipment. Our field engineers use certified tools and procedures to provide reliable, real-time diagnostics.",
+    "groups": [
+      {
+        "title": "Electrical Safety Testing",
+        "items": ["Insulation resistance testing", "Earth continuity testing", "High-voltage (HiPot) testing"]
+      },
+      {
+        "title": "Load & Performance Testing",
+        "items": ["Motor load test", "Panel load balancing", "Equipment performance analysis"]
+      },
+      {
+        "title": "Thermal & Vibration Analysis",
+        "items": ["Thermal imaging of switchboards and connections", "Vibration checks on rotating machinery", "Preventive diagnostics"]
+      },
+      {
+        "title": "Automation System Testing",
+        "items": ["PLC input/output checks", "Sensor-actuator response tests", "Communication protocol verification"]
+      }
+    ],
+    "why": [
+      "Certified testing equipment",
+      "On-site report generation",
+      "Experienced field technicians",
+      "Compliance with industrial standards",
+      "Minimal downtime and disruption"
+    ],
+    "cta": {
+      "label": "Book a Site Visit",
+      "text": "Need professional on-site testing? Schedule a visit today to ensure your systems are running safely and efficiently."
+    }
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "connected": true,
+  "action": "https://docs.google.com/forms/d/e/1FAIpQLSfMZI1JYF9MdcAHMdlkNm9HkooXY8KmnBjYyZ7cBBjMxQ7uqQ/formResponse",
+  "method": "POST",
+  "minSubmitMs": 2500,
+  "honeypotName": "website_url",
+  "interestPrefix": true,
+  "fields": {
+    "name": {
+      "entry": "entry.750210231",
+      "label": "Name",
+      "type": "text",
+      "required": true,
+      "autocomplete": "name",
+      "placeholder": "Enter your name"
+    },
+    "phone": {
+      "entry": "entry.2106024227",
+      "label": "Phone",
+      "type": "tel",
+      "required": true,
+      "autocomplete": "tel",
+      "placeholder": "Enter your phone number"
+    },
+    "email": {
+      "entry": "entry.846203511",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "autocomplete": "email",
+      "placeholder": "you@company.com"
+    },
+    "interest": {
+      "entry": "",
+      "label": "Interest",
+      "type": "select",
+      "required": true,
+      "placeholder": "Choose an interest"
+    },
+    "message": {
+      "entry": "entry.1889579180",
+      "label": "Message",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Write your message here",
+      "rows": 5
+    }
+  }
+}
