@@ -2,6 +2,11 @@
 import { site, services } from '../content';
 import Logo from './Logo.astro';
 
+interface Props {
+  overlay?: boolean;
+}
+
+const { overlay = false } = Astro.props;
 const primaryNav = site.nav.filter((item) => item.href !== '/contact-us');
 const contactNav = site.nav.find((item) => item.href === '/contact-us');
 ---
@@ -73,7 +78,7 @@ const contactNav = site.nav.find((item) => item.href === '/contact-us');
     </div>
   </nav>
 </header>
-<div class="h-16" aria-hidden="true"></div>
+{!overlay && <div class="h-16 bg-paper" aria-hidden="true"></div>}
 
 <script>
   const button = document.getElementById('menu-toggle');
