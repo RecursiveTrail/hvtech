@@ -7,10 +7,10 @@ import Section from '../../components/ui/Section.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import { products } from '../../content';
 ---
-<BaseLayout title="Our Products — HV Technologies" description="High-voltage test equipment including impulse systems, measurement, facilities, cable testing, and components.">
+<BaseLayout title={products.page.seoTitle} description={products.page.seoDescription}>
   <Header />
   <main id="main">
-    <Section eyebrow="Catalog" title="Our Products" headingLevel={1}>
+    <Section eyebrow={products.page.eyebrow} title={products.page.title} headingLevel={1}>
       <div class="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter by category">
         <button
           type="button"
@@ -18,7 +18,7 @@ import { products } from '../../content';
           aria-pressed="true"
           class="rounded-sm border border-line bg-white px-3 py-1.5 text-sm font-semibold aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-white"
         >
-          All
+          {products.page.allLabel}
         </button>
         {products.categories.map((category) => (
           <button

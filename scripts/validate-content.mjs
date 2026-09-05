@@ -10,6 +10,7 @@ const load = (rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
 test('products.json has 13 items and required fields', () => {
   const data = load('src/content/products.json');
   assert.equal(data.items.length, 13);
+  assert.ok(data.page.title);
   const slugs = new Set();
   for (const item of data.items) {
     for (const key of ['slug', 'name', 'category', 'featured', 'summary', 'description', 'image', 'standards', 'specs']) {
@@ -57,12 +58,25 @@ test('form.json is connected to the HV Tech Google Form', () => {
   assert.equal(form.interestPrefix, true);
 });
 
-test('site.json has projects, clients, reviews, and no vanity stats', () => {
+test('split content files have projects, clients, reviews, and no vanity stats', () => {
   const site = load('src/content/site.json');
-  assert.equal(site.projects.items.length, 3);
-  assert.equal(site.clients.length, 9);
-  assert.equal(site.reviews.length, 5);
+  const projects = load('src/content/projects.json');
+  const clients = load('src/content/clients.json');
+  const reviews = load('src/content/reviews.json');
+  const hero = load('src/content/hero.json');
+  const about = load('src/content/about.json');
+  const contact = load('src/content/contact.json');
+  const home = load('src/content/home.json');
+
+  assert.equal(projects.items.length, 3);
+  assert.equal(clients.items.length, 9);
+  assert.equal(reviews.items.length, 5);
   assert.equal('stats' in site, false);
-  const names = site.reviews.map((r) => r.name);
+  assert.equal('hero' in site, false);
+  assert.ok(hero.headline);
+  assert.ok(about.paragraphs.length >= 2);
+  assert.ok(contact.person.name);
+  assert.ok(home.featured.title);
+  const names = reviews.items.map((r) => r.name);
   assert.equal(names.filter((n) => n === 'Saurabh Agrahari').length, 1);
 });

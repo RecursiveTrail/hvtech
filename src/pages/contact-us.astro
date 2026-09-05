@@ -5,19 +5,19 @@ import Footer from '../components/Footer.astro';
 import WhatsApp from '../components/WhatsApp.astro';
 import Section from '../components/ui/Section.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { site } from '../content';
+import { contact } from '../content';
 
-const person = site.contact.person;
+const person = contact.person;
 ---
-<BaseLayout title="Contact — HV Technologies" description="Get in touch with HV Technologies for high-voltage test systems, fabrication, and on-site testing.">
+<BaseLayout title={contact.seoTitle} description={contact.seoDescription}>
   <Header />
   <main id="main">
     <section class="bg-paper py-16 md:py-20">
       <div class="mx-auto grid max-w-6xl items-start gap-10 px-4 md:grid-cols-2">
         <div>
           <img
-            src={site.contact.image}
-            alt="Handshake"
+            src={contact.image}
+            alt={contact.imageAlt}
             class="w-full rounded-sm object-cover"
           />
           <article class="mt-6 rounded-sm border border-line bg-white p-6">
@@ -37,9 +37,9 @@ const person = site.contact.person;
 
         <div>
           <p class="border-l-4 border-accent pl-3 text-xs font-bold uppercase tracking-widest text-accent">
-            Contact
+            {contact.eyebrow}
           </p>
-          <h1 class="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">Get in Touch</h1>
+          <h1 class="mt-3 text-3xl font-extrabold tracking-tight md:text-4xl">{contact.title}</h1>
           <div class="mt-8">
             <ContactForm />
           </div>
@@ -47,10 +47,10 @@ const person = site.contact.person;
       </div>
     </section>
 
-    <Section eyebrow="Location" title="Find Us Here">
+    <Section eyebrow={contact.mapEyebrow} title={contact.mapTitle}>
       <iframe
-        src={site.contact.mapEmbed}
-        title="Company Location Map"
+        src={contact.mapEmbed}
+        title={contact.mapIframeTitle}
         class="h-80 w-full rounded-sm border-0"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"

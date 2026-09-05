@@ -1,0 +1,10 @@
+{
+  "image": "/insulator4.webp",
+  "imageAlt": "High-voltage insulator",
+  "eyebrow": "High-Voltage Test Systems",
+  "headline": "Powering the Future of Industrial Solutions",
+  "accentPhrase": "Industrial Solutions",
+  "subhead": "We deliver innovative high-voltage electrical and energy solutions that empower businesses to grow, scale, and achieve maximum efficiency in the modern industrial landscape.",
+  "cta": { "label": "View Equipment", "href": "/products" },
+  "secondaryCta": { "label": "Get a Quote", "href": "/contact-us" }
+}

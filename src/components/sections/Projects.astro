@@ -1,10 +1,10 @@
 ---
 import Section from '../ui/Section.astro';
-import { site } from '../../content';
+import { projects } from '../../content';
 ---
-<Section id="projects" eyebrow={site.projects.eyebrow} title={site.projects.title} tone="light">
+<Section id="projects" eyebrow={projects.eyebrow} title={projects.title} tone="light">
   <div class="grid gap-8 md:grid-cols-3">
-    {site.projects.items.map((project) => (
+    {projects.items.map((project) => (
       <article>
         <img
           src={project.image}

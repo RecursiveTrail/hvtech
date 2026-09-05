@@ -1,5 +1,5 @@
 ---
-import { form, site, getInterestOptions } from '../content';
+import { contact, form, getInterestOptions } from '../content';
 
 const fields = form.fields;
 const interestOptions = getInterestOptions();
@@ -22,8 +22,8 @@ const inputClass =
     role="status"
     aria-live="polite"
   >
-    <h3 class="text-xl font-semibold text-ink">{site.contact.successTitle}</h3>
-    <p class="mt-2 text-mute">{site.contact.successMessage}</p>
+    <h3 class="text-xl font-semibold text-ink">{contact.successTitle}</h3>
+    <p class="mt-2 text-mute">{contact.successMessage}</p>
   </div>
 
   <form
@@ -36,7 +36,7 @@ const inputClass =
     data-min-submit-ms={form.minSubmitMs}
     data-connected={String(form.connected)}
     data-interest-prefix={String(form.interestPrefix)}
-    data-disconnected-message={site.contact.disconnectedMessage}
+    data-disconnected-message={contact.disconnectedMessage}
     data-honeypot-name={form.honeypotName}
   >
     <div class="sr-only" aria-hidden="true">
@@ -128,10 +128,10 @@ const inputClass =
       type="submit"
       id="enquiry-submit"
       class="rounded-sm bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
-      data-label={site.contact.submitLabel}
-      data-busy-label={site.contact.submittingLabel}
+      data-label={contact.submitLabel}
+      data-busy-label={contact.submittingLabel}
     >
-      {site.contact.submitLabel}
+      {contact.submitLabel}
     </button>
   </form>
 </div>

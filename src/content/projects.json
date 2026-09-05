@@ -1,0 +1,21 @@
+{
+  "eyebrow": "Portfolio",
+  "title": "Delivered Projects",
+  "items": [
+    {
+      "name": "500kVp/25KJ Impulse Voltage Generator Test System",
+      "description": "The purpose of this project was to design and deliver a customized impulse generator to meet specific technical and operational requirements for testing power cable up to 66kV class and lightning arrester.",
+      "image": "/projects/chopping-cable.jpg"
+    },
+    {
+      "name": "RF Shielded Room",
+      "description": "An RF shielded room, also known as a Faraday cage, is a specially constructed enclosure designed to block or reduce electromagnetic and radio frequency (RF) signals from entering or leaving the room. It is commonly used in environments where sensitive electronic testing or communications occur, and isolation from external RF interference is critical.",
+      "image": "/projects/rf-shielding.jpg"
+    },
+    {
+      "name": "300kVp/7.5KJ Impulse Voltage Generator Test System",
+      "description": "The purpose of this project was to design and deliver a customized impulse generator to meet specific technical and operational requirements for testing power cable up to 33kV.",
+      "image": "/projects/imsystem.jpg"
+    }
+  ]
+}

@@ -21,7 +21,7 @@ const contactNav = site.nav.find((item) => item.href === '/contact-us');
 
       <details class="relative">
         <summary class="cursor-pointer list-none hover:text-white/80 [&::-webkit-details-marker]:hidden">
-          Services
+          {site.navServicesLabel}
         </summary>
         <div class="absolute right-0 z-50 mt-3 min-w-56 border border-white/10 bg-ink py-2 shadow-lg">
           {services.map((service) => (
@@ -36,8 +36,8 @@ const contactNav = site.nav.find((item) => item.href === '/contact-us');
         <a href={contactNav.href} class="hover:text-white/80">{contactNav.label}</a>
       )}
 
-      <a href="/contact-us" class="bg-accent px-3 py-2 text-sm font-semibold hover:bg-accent-hover">
-        Get a Quote
+      <a href={site.quoteCta.href} class="bg-accent px-3 py-2 text-sm font-semibold hover:bg-accent-hover">
+        {site.quoteCta.label}
       </a>
     </nav>
 
@@ -62,7 +62,7 @@ const contactNav = site.nav.find((item) => item.href === '/contact-us');
         <a href={item.href}>{item.label}</a>
       ))}
       <details>
-        <summary class="cursor-pointer list-none [&::-webkit-details-marker]:hidden">Services</summary>
+        <summary class="cursor-pointer list-none [&::-webkit-details-marker]:hidden">{site.navServicesLabel}</summary>
         <div class="mt-2 flex flex-col gap-2 pl-3">
           {services.map((service) => (
             <a href={service.href}>{service.name}</a>
@@ -72,8 +72,8 @@ const contactNav = site.nav.find((item) => item.href === '/contact-us');
       {contactNav && (
         <a href={contactNav.href}>{contactNav.label}</a>
       )}
-      <a href="/contact-us" class="bg-accent px-3 py-2 text-center font-semibold hover:bg-accent-hover">
-        Get a Quote
+      <a href={site.quoteCta.href} class="bg-accent px-3 py-2 text-center font-semibold hover:bg-accent-hover">
+        {site.quoteCta.label}
       </a>
     </div>
   </nav>

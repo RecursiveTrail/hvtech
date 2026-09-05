@@ -1,16 +1,16 @@
 ---
-import { site } from '../../content';
+import { hero } from '../../content';
 
-const accentPhrase = 'Industrial Solutions';
-const hasAccent = site.hero.headline.includes(accentPhrase);
+const accentPhrase = hero.accentPhrase;
+const hasAccent = hero.headline.includes(accentPhrase);
 const [headlineLead, headlineRest = ''] = hasAccent
-  ? site.hero.headline.split(accentPhrase)
-  : [site.hero.headline, ''];
+  ? hero.headline.split(accentPhrase)
+  : [hero.headline, ''];
 ---
 <section class="relative flex min-h-screen items-center bg-ink pt-24 text-white">
   <img
-    src={site.hero.image}
-    alt={site.hero.imageAlt}
+    src={hero.image}
+    alt={hero.imageAlt}
     width="2048"
     height="1492"
     class="absolute inset-0 size-full object-cover"
@@ -18,26 +18,26 @@ const [headlineLead, headlineRest = ''] = hasAccent
   <div class="absolute inset-0 bg-ink/50" aria-hidden="true"></div>
   <div class="relative z-10 mx-auto max-w-6xl px-4 py-24">
     <p class="border-l-4 border-accent pl-3 text-xs font-bold uppercase tracking-widest text-accent">
-      {site.hero.eyebrow}
+      {hero.eyebrow}
     </p>
     <h1 class="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight md:text-6xl">
       {headlineLead}{hasAccent && <span class="text-accent">{accentPhrase}</span>}{headlineRest}
     </h1>
     <p class="mt-6 max-w-2xl text-base leading-relaxed text-white/80">
-      {site.hero.subhead}
+      {hero.subhead}
     </p>
     <div class="mt-8 flex flex-wrap gap-3">
       <a
-        href={site.hero.cta.href}
+        href={hero.cta.href}
         class="rounded-sm bg-accent px-5 py-3 text-sm font-semibold hover:bg-accent-hover"
       >
-        {site.hero.cta.label}
+        {hero.cta.label}
       </a>
       <a
-        href={site.hero.secondaryCta.href}
+        href={hero.secondaryCta.href}
         class="rounded-sm border border-white/30 px-5 py-3 text-sm font-semibold hover:bg-white/10"
       >
-        {site.hero.secondaryCta.label}
+        {hero.secondaryCta.label}
       </a>
     </div>
   </div>

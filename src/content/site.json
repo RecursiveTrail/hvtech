@@ -14,83 +14,17 @@
     { "label": "About Us", "href": "/about-us" },
     { "label": "Contact", "href": "/contact-us" }
   ],
-  "hero": {
-    "image": "/insulator4.webp",
-    "imageAlt": "High-voltage insulator",
-    "eyebrow": "High-Voltage Test Systems",
-    "headline": "Powering the Future of Industrial Solutions",
-    "subhead": "We deliver innovative high-voltage electrical and energy solutions that empower businesses to grow, scale, and achieve maximum efficiency in the modern industrial landscape.",
-    "cta": { "label": "View Equipment", "href": "/products" },
-    "secondaryCta": { "label": "Get a Quote", "href": "/contact-us" }
-  },
-  "about": {
-    "eyebrow": "About Us",
-    "title": "Engineers for high-voltage testing",
-    "photo": "/emp-work.jpg",
-    "photoAlt": "HV Tech team at work",
-    "paragraphs": [
-      "We are a team of passionate engineers and innovators dedicated to developing advanced testing systems for transformers, power cables, switchgear, and the solar industry. With years of experience, we specialize in the development of high-voltage testing equipment used for simulating lightning and switching impulses.",
-      "Our solutions are trusted by industry professionals, research institutions, and training centers globally. We are committed to continuous innovation, safety, and reliability, ensuring our clients get the best performance and support."
-    ]
-  },
-  "projects": {
-    "eyebrow": "Portfolio",
-    "title": "Delivered Projects",
-    "items": [
-      {
-        "name": "500kVp/25KJ Impulse Voltage Generator Test System",
-        "description": "The purpose of this project was to design and deliver a customized impulse generator to meet specific technical and operational requirements for testing power cable up to 66kV class and lightning arrester.",
-        "image": "/projects/chopping-cable.jpg"
-      },
-      {
-        "name": "RF Shielded Room",
-        "description": "An RF shielded room, also known as a Faraday cage, is a specially constructed enclosure designed to block or reduce electromagnetic and radio frequency (RF) signals from entering or leaving the room. It is commonly used in environments where sensitive electronic testing or communications occur, and isolation from external RF interference is critical.",
-        "image": "/projects/rf-shielding.jpg"
-      },
-      {
-        "name": "300kVp/7.5KJ Impulse Voltage Generator Test System",
-        "description": "The purpose of this project was to design and deliver a customized impulse generator to meet specific technical and operational requirements for testing power cable up to 33kV.",
-        "image": "/projects/imsystem.jpg"
-      }
-    ]
-  },
-  "clients": [
-    { "name": "Svasca Industries", "image": "/clients/svasca.jpg" },
-    { "name": "Client 4", "image": "/clients/client-4.png" },
-    { "name": "Client 5", "image": "/clients/client-5.png" },
-    { "name": "Client 6", "image": "/clients/client-6.png" },
-    { "name": "Client 7", "image": "/clients/client-7.png" },
-    { "name": "Amit Test and Calibration Centre", "image": "/clients/amit-lab.png" },
-    { "name": "Client 9", "image": "/clients/client-9.png" },
-    { "name": "StartLab", "image": "/clients/startlab.jpg" },
-    { "name": "IMP", "image": "/clients/imp.png" }
-  ],
-  "reviews": [
-    { "name": "Saurabh Agrahari", "quote": "HV Tech provided outstanding service and high-quality products. Highly recommend!", "stars": 5, "image": "/clients/client-7.png" },
-    { "name": "K.P Singh", "quote": "Great experience! The team was very professional and responsive.", "stars": 4, "image": "/clients/client-4.png" },
-    { "name": "Sudhir Poswal", "quote": "Excellent products and support. Their HV Test Systems are top-notch!", "stars": 5, "image": "/clients/svasca.jpg" },
-    { "name": "Rakesh Gupta", "quote": "Good experience overall. The team helped us choose the right solutions.", "stars": 4, "image": "/clients/client-6.png" },
-    { "name": "Pradep Jain", "quote": "Good experience overall. The team helped us choose the right solutions.", "stars": 4, "image": "/clients/startlab.jpg" }
-  ],
-  "contact": {
-    "person": { "name": "Vinod Maurya", "initials": "AJ", "phone": "+91 7398 651 879", "phoneHref": "tel:+917398651879" },
-    "image": "/Chat_hanshake.png",
-    "emails": ["info@hvtech.co", "hvteknologies@gmail.com"],
-    "phones": ["+91 9415679524", "+91 7398651879"],
-    "whatsapp": "https://wa.me/917398651879",
-    "addresses": [
-      "V 22 Pawala Khasropur Jahajgarh Daulatabad, Gurgaon 122006",
-      "Khamaria Belhat Koraon Prayagraj, U.P. 212306"
-    ],
-    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114243.12795659414!2d82.1221899!3d25.0276793!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398567c79cc80489%3A0x6c428a238f231bb5!2sHV%20TECHNOLOGIES!5e0!3m2!1sen!2sin!4v1706893456789!5m2!1sen!2sin",
-    "successTitle": "Message received",
-    "successMessage": "Thanks — we will get back to you as soon as possible.",
-    "submitLabel": "Send Message",
-    "submittingLabel": "Sending…",
-    "disconnectedMessage": "Form is not connected yet. Please call or email."
-  },
+  "navServicesLabel": "Services",
+  "quoteCta": { "label": "Get a Quote", "href": "/contact-us" },
   "footer": {
     "blurb": "We deliver innovative electrical and energy solutions that empower businesses to grow, scale, and achieve efficiency in the modern industrial landscape.",
-    "copyright": "© 2026 HV Technologies. All rights reserved."
+    "copyright": "© 2026 HV Technologies. All rights reserved.",
+    "contactHeading": "Contact",
+    "linksHeading": "Quick Links",
+    "quickLinks": [
+      { "label": "About", "href": "/about-us" },
+      { "label": "Products", "href": "/products" },
+      { "label": "Contact", "href": "/contact-us" }
+    ]
   }
 }

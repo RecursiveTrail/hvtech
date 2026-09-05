@@ -1,11 +1,12 @@
 ---
 import Section from '../ui/Section.astro';
+import { home } from '../../content';
 ---
-<Section eyebrow="Contact" title="Talk to our engineers" tone="dark">
+<Section eyebrow={home.cta.eyebrow} title={home.cta.title} tone="dark">
   <a
-    href="/contact-us"
+    href={home.cta.href}
     class="inline-block rounded-sm bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-hover"
   >
-    Get a Quote
+    {home.cta.label}
   </a>
 </Section>

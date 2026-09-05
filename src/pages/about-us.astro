@@ -5,20 +5,20 @@ import Footer from '../components/Footer.astro';
 import WhatsApp from '../components/WhatsApp.astro';
 import Section from '../components/ui/Section.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
-import { site } from '../content';
+import { about } from '../content';
 ---
-<BaseLayout title={`${site.about.eyebrow} — HV Technologies`} description={site.about.paragraphs[0]}>
+<BaseLayout title={about.seoTitle} description={about.seoDescription}>
   <Header />
   <main id="main">
-    <Section eyebrow={site.about.eyebrow} title={site.about.title} headingLevel={1}>
+    <Section eyebrow={about.eyebrow} title={about.title} headingLevel={1}>
       <div class="grid items-center gap-10 md:grid-cols-2">
         <img
-          src={site.about.photo}
-          alt={site.about.photoAlt}
+          src={about.photo}
+          alt={about.photoAlt}
           class="w-full rounded-sm object-cover"
         />
         <div>
-          {site.about.paragraphs.map((paragraph) => (
+          {about.paragraphs.map((paragraph) => (
             <p class="mt-4 text-sm leading-relaxed text-mute first:mt-0">{paragraph}</p>
           ))}
         </div>

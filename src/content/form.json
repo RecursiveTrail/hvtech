@@ -5,6 +5,7 @@
   "minSubmitMs": 2500,
   "honeypotName": "website_url",
   "interestPrefix": true,
+  "generalInterestLabel": "General enquiry",
   "fields": {
     "name": {
       "entry": "entry.750210231",

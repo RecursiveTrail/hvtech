@@ -1,10 +1,10 @@
 ---
 import Section from '../ui/Section.astro';
-import { site } from '../../content';
+import { reviews } from '../../content';
 ---
-<Section eyebrow="Reviews" title="What clients say">
+<Section eyebrow={reviews.eyebrow} title={reviews.title}>
   <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-    {site.reviews.map((review) => (
+    {reviews.items.map((review) => (
       <article class="rounded-sm border border-line bg-white p-6">
         <p class="text-sm text-accent" role="img" aria-label={`${review.stars} out of 5 stars`}>
           {'★'.repeat(review.stars)}{'☆'.repeat(5 - review.stars)}

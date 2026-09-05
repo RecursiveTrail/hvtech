@@ -1,23 +1,23 @@
 ---
 import Section from '../ui/Section.astro';
-import { site } from '../../content';
+import { about } from '../../content';
 ---
-<Section eyebrow={site.about.eyebrow} title={site.about.title}>
+<Section eyebrow={about.eyebrow} title={about.title}>
   <div class="grid items-center gap-10 md:grid-cols-2">
     <img
-      src={site.about.photo}
-      alt={site.about.photoAlt}
+      src={about.photo}
+      alt={about.photoAlt}
       class="w-full rounded-sm object-cover"
     />
     <div>
-      {site.about.paragraphs.map((paragraph) => (
+      {about.paragraphs.map((paragraph) => (
         <p class="mt-4 text-sm leading-relaxed text-mute first:mt-0">{paragraph}</p>
       ))}
       <a
-        href="/about-us"
+        href={about.ctaHref}
         class="mt-6 inline-block rounded-sm bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-hover"
       >
-        About Us
+        {about.ctaLabel}
       </a>
     </div>
   </div>

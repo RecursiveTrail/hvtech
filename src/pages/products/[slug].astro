@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import WhatsApp from '../../components/WhatsApp.astro';
-import { getProduct, products } from '../../content';
+import { getProduct, products, site } from '../../content';
 
 export function getStaticPaths() {
   return products.items.map((item) => ({ params: { slug: item.slug } }));
@@ -16,12 +16,12 @@ if (!product) {
 
 const specs = product.specs as { label: string; value: string }[];
 ---
-<BaseLayout title={`${product.name} — HV Technologies`} description={product.summary}>
+<BaseLayout title={`${product.name} — ${site.brand.name}`} description={product.summary}>
   <Header />
   <main id="main" class="bg-paper">
     <div class="mx-auto max-w-6xl px-4 py-16 md:py-20">
       <a href="/products" class="text-sm font-semibold text-accent hover:text-accent-hover">
-        Back to products
+        {products.page.backLabel}
       </a>
 
       <div class="mt-8 grid items-start gap-10 md:grid-cols-2">
@@ -44,7 +44,7 @@ const specs = product.specs as { label: string; value: string }[];
 
           {product.standards.length > 0 && (
             <div class="mt-8">
-              <h2 class="text-sm font-bold uppercase tracking-widest text-ink">Standards</h2>
+              <h2 class="text-sm font-bold uppercase tracking-widest text-ink">{products.page.standardsHeading}</h2>
               <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-mute">
                 {product.standards.map((standard) => (
                   <li>{standard}</li>
@@ -55,7 +55,7 @@ const specs = product.specs as { label: string; value: string }[];
 
           {specs.length > 0 && (
             <div class="mt-8">
-              <h2 class="text-sm font-bold uppercase tracking-widest text-ink">Specifications</h2>
+              <h2 class="text-sm font-bold uppercase tracking-widest text-ink">{products.page.specsHeading}</h2>
               <table class="mt-3 w-full border-collapse text-sm">
                 <tbody>
                   {specs.map((spec) => (
@@ -73,7 +73,7 @@ const specs = product.specs as { label: string; value: string }[];
             href={`/contact-us?interest=${product.slug}`}
             class="mt-8 inline-block rounded-sm bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-hover"
           >
-            Enquire
+            {products.page.enquireLabel}
           </a>
         </div>
       </div>
