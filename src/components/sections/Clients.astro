@@ -1,0 +1,13 @@
+---
+import Section from '../ui/Section.astro';
+import { site } from '../../content';
+---
+<Section eyebrow="Clients" title="Who we work with">
+  <div class="grid grid-cols-2 items-center gap-4 sm:grid-cols-3 lg:grid-cols-5">
+    {site.clients.map((client) => (
+      <div class="flex min-h-24 items-center justify-center rounded-sm border border-line bg-white p-4">
+        <img src={client.image} alt={client.name} class="max-h-14 w-auto object-contain" />
+      </div>
+    ))}
+  </div>
+</Section>

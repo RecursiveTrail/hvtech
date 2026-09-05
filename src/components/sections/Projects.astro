@@ -1,0 +1,19 @@
+---
+import Section from '../ui/Section.astro';
+import { site } from '../../content';
+---
+<Section id="projects" eyebrow={site.projects.eyebrow} title={site.projects.title} tone="light">
+  <div class="grid gap-8 md:grid-cols-3">
+    {site.projects.items.map((project) => (
+      <article>
+        <img
+          src={project.image}
+          alt={project.name}
+          class="aspect-[4/3] w-full rounded-sm object-cover"
+        />
+        <h3 class="mt-4 text-lg font-bold">{project.name}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-mute">{project.description}</p>
+      </article>
+    ))}
+  </div>
+</Section>

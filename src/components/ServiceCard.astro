@@ -1,0 +1,19 @@
+---
+import type { Service } from '../content';
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+<article class="flex flex-col rounded-sm border border-line bg-white p-6">
+  <p class="text-xs font-bold uppercase tracking-widest text-accent">{service.eyebrow}</p>
+  <h3 class="mt-2 text-xl font-bold">
+    <a href={service.href} class="hover:text-accent">{service.name}</a>
+  </h3>
+  <p class="mt-3 flex-1 text-sm leading-relaxed text-mute">{service.tagline}</p>
+  <a href={service.href} class="mt-5 inline-block text-sm font-semibold text-accent hover:text-accent-hover">
+    Learn more
+  </a>
+</article>

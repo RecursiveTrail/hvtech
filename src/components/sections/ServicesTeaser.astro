@@ -1,0 +1,12 @@
+---
+import Section from '../ui/Section.astro';
+import ServiceCard from '../ServiceCard.astro';
+import { services } from '../../content';
+---
+<Section eyebrow="Services" title="What we do">
+  <div class="grid gap-6 md:grid-cols-3">
+    {services.map((service) => (
+      <ServiceCard service={service} />
+    ))}
+  </div>
+</Section>

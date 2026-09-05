@@ -1,0 +1,32 @@
+---
+import type { Product } from '../content';
+
+interface Props {
+  product: Product;
+  headingLevel?: 2 | 3;
+}
+
+const { product, headingLevel = 3 } = Astro.props;
+const Heading = headingLevel === 2 ? 'h2' : 'h3';
+---
+<article class="flex flex-col overflow-hidden rounded-sm border border-line bg-white">
+  {product.image ? (
+    <img src={product.image} alt={product.name} class="aspect-[4/3] w-full object-cover" />
+  ) : (
+    <div class="flex aspect-[4/3] w-full items-center justify-center bg-ink px-4 text-center text-sm font-semibold text-white">
+      {product.name}
+    </div>
+  )}
+  <div class="flex flex-1 flex-col p-5">
+    <Heading class="text-lg font-bold">
+      <a href={`/products/${product.slug}`} class="hover:text-accent">{product.name}</a>
+    </Heading>
+    <p class="mt-2 flex-1 text-sm leading-relaxed text-mute">{product.summary}</p>
+    <a
+      href={`/contact-us?interest=${product.slug}`}
+      class="mt-4 inline-block text-sm font-semibold text-accent hover:text-accent-hover"
+    >
+      Enquire
+    </a>
+  </div>
+</article>
