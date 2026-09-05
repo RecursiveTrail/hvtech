@@ -6,7 +6,7 @@ import { site } from '../../content';
   <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
     {site.reviews.map((review) => (
       <article class="rounded-sm border border-line bg-white p-6">
-        <p class="text-sm text-accent" aria-label={`${review.stars} out of 5 stars`}>
+        <p class="text-sm text-accent" role="img" aria-label={`${review.stars} out of 5 stars`}>
           {'★'.repeat(review.stars)}{'☆'.repeat(5 - review.stars)}
         </p>
         <p class="mt-3 text-sm leading-relaxed text-mute">“{review.quote}”</p>
@@ -14,6 +14,9 @@ import { site } from '../../content';
           <img
             src={review.image}
             alt=""
+            width="40"
+            height="40"
+            loading="lazy"
             class="size-10 rounded-sm object-cover"
           />
           <p class="text-sm font-semibold">{review.name}</p>

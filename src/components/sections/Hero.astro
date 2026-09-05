@@ -2,12 +2,17 @@
 import { site } from '../../content';
 
 const accentPhrase = 'Industrial Solutions';
-const [headlineLead, headlineRest = ''] = site.hero.headline.split(accentPhrase);
+const hasAccent = site.hero.headline.includes(accentPhrase);
+const [headlineLead, headlineRest = ''] = hasAccent
+  ? site.hero.headline.split(accentPhrase)
+  : [site.hero.headline, ''];
 ---
 <section class="relative flex min-h-screen items-center bg-ink pt-24 text-white">
   <img
     src={site.hero.image}
     alt={site.hero.imageAlt}
+    width="2048"
+    height="1492"
     class="absolute inset-0 size-full object-cover"
   />
   <div class="absolute inset-0 bg-ink/50" aria-hidden="true"></div>
@@ -16,7 +21,7 @@ const [headlineLead, headlineRest = ''] = site.hero.headline.split(accentPhrase)
       {site.hero.eyebrow}
     </p>
     <h1 class="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight md:text-6xl">
-      {headlineLead}<span class="text-accent">{accentPhrase}</span>{headlineRest}
+      {headlineLead}{hasAccent && <span class="text-accent">{accentPhrase}</span>}{headlineRest}
     </h1>
     <p class="mt-6 max-w-2xl text-base leading-relaxed text-white/80">
       {site.hero.subhead}

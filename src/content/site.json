@@ -15,7 +15,7 @@
     { "label": "Contact", "href": "/contact-us" }
   ],
   "hero": {
-    "image": "/insulator4.png",
+    "image": "/insulator4.webp",
     "imageAlt": "High-voltage insulator",
     "eyebrow": "High-Voltage Test Systems",
     "headline": "Powering the Future of Industrial Solutions",

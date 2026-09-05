@@ -11,7 +11,7 @@ const Heading = headingLevel === 2 ? 'h2' : 'h3';
 ---
 <article class="flex flex-col overflow-hidden rounded-sm border border-line bg-white">
   {product.image ? (
-    <img src={product.image} alt={product.name} class="aspect-[4/3] w-full object-cover" />
+    <img src={product.image} alt={product.name} loading="lazy" class="aspect-[4/3] w-full object-cover" />
   ) : (
     <div class="flex aspect-[4/3] w-full items-center justify-center bg-ink px-4 text-center text-sm font-semibold text-white">
       {product.name}
