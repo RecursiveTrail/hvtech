@@ -1,0 +1,85 @@
+---
+import { site, services } from '../content';
+import Logo from './Logo.astro';
+
+const primaryNav = site.nav.filter((item) => item.href !== '/contact-us');
+const contactNav = site.nav.find((item) => item.href === '/contact-us');
+---
+<header class="fixed inset-x-0 top-0 z-40 border-b-4 border-accent bg-ink text-white">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
+    <Logo />
+
+    <nav class="hidden items-center gap-6 text-sm font-medium md:flex" aria-label="Primary">
+      {primaryNav.map((item) => (
+        <a href={item.href} class="hover:text-white/80">{item.label}</a>
+      ))}
+
+      <details class="relative">
+        <summary class="cursor-pointer list-none hover:text-white/80 [&::-webkit-details-marker]:hidden">
+          Services
+        </summary>
+        <div class="absolute right-0 z-50 mt-3 min-w-56 border border-white/10 bg-ink py-2 shadow-lg">
+          {services.map((service) => (
+            <a href={service.href} class="block px-4 py-2 text-sm hover:bg-white/10">
+              {service.name}
+            </a>
+          ))}
+        </div>
+      </details>
+
+      {contactNav && (
+        <a href={contactNav.href} class="hover:text-white/80">{contactNav.label}</a>
+      )}
+
+      <a href="/contact-us" class="bg-accent px-3 py-2 text-sm font-semibold hover:bg-accent-hover">
+        Get a Quote
+      </a>
+    </nav>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="inline-flex size-10 items-center justify-center md:hidden"
+      aria-controls="mobile-nav"
+      aria-expanded="false"
+      aria-label="Open menu"
+    >
+      <span class="sr-only">Menu</span>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="size-6" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-nav" class="hidden border-t border-white/10 px-4 py-3 md:hidden" aria-label="Mobile">
+    <div class="flex flex-col gap-3 text-sm font-medium">
+      {primaryNav.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+      <details>
+        <summary class="cursor-pointer list-none [&::-webkit-details-marker]:hidden">Services</summary>
+        <div class="mt-2 flex flex-col gap-2 pl-3">
+          {services.map((service) => (
+            <a href={service.href}>{service.name}</a>
+          ))}
+        </div>
+      </details>
+      {contactNav && (
+        <a href={contactNav.href}>{contactNav.label}</a>
+      )}
+      <a href="/contact-us" class="bg-accent px-3 py-2 text-center font-semibold hover:bg-accent-hover">
+        Get a Quote
+      </a>
+    </div>
+  </nav>
+</header>
+<div class="h-16" aria-hidden="true"></div>
+
+<script>
+  const button = document.getElementById('menu-toggle');
+  const panel = document.getElementById('mobile-nav');
+  button?.addEventListener('click', () => {
+    const hidden = panel?.classList.toggle('hidden');
+    button.setAttribute('aria-expanded', String(!hidden));
+  });
+</script>

@@ -1,8 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsApp from '../components/WhatsApp.astro';
 ---
 <BaseLayout>
+  <Header />
   <main id="main">
-    <h1>HV Technologies</h1>
+    <h1 class="sr-only">HV Technologies</h1>
   </main>
+  <Footer />
+  <WhatsApp />
 </BaseLayout>

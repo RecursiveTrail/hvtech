@@ -1,0 +1,52 @@
+---
+import { site, services } from '../content';
+
+const quickLinks = [
+  { label: 'About', href: '/about-us' },
+  ...services.map((service) => ({ label: service.name, href: service.href })),
+  { label: 'Products', href: '/products' },
+  { label: 'Contact', href: '/contact-us' },
+];
+---
+<footer class="bg-ink text-white">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-3">
+    <div>
+      <p class="text-sm font-extrabold tracking-wide">{site.brand.name}</p>
+      <p class="mt-3 text-sm leading-relaxed text-white/70">{site.footer.blurb}</p>
+    </div>
+
+    <div>
+      <p class="text-xs font-bold uppercase tracking-widest text-white/50">Contact</p>
+      <ul class="mt-3 space-y-2 text-sm text-white/80">
+        {site.contact.emails.map((email) => (
+          <li>
+            <a href={`mailto:${email}`} class="hover:text-white">{email}</a>
+          </li>
+        ))}
+        {site.contact.phones.map((phone) => (
+          <li>
+            <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} class="hover:text-white">{phone}</a>
+          </li>
+        ))}
+        {site.contact.addresses.map((address) => (
+          <li class="text-white/70">{address}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-xs font-bold uppercase tracking-widest text-white/50">Quick Links</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        {quickLinks.map((link) => (
+          <li>
+            <a href={link.href} class="text-white/80 hover:text-white">{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <p class="mx-auto max-w-6xl px-4 py-5 text-xs text-white/50">{site.footer.copyright}</p>
+  </div>
+</footer>
