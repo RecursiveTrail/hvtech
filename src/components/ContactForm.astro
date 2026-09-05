@@ -1,0 +1,277 @@
+---
+import { form, site, getInterestOptions } from '../content';
+
+const fields = form.fields;
+const interestOptions = getInterestOptions();
+const inputClass =
+  'w-full rounded-sm border border-line bg-white px-3.5 py-2.5 text-ink placeholder:text-mute/60 focus:border-accent';
+---
+
+<div class="relative">
+  <iframe
+    name="enquiry-iframe"
+    id="enquiry-iframe"
+    title="Form submission target"
+    class="hidden"
+    tabindex="-1"
+  ></iframe>
+
+  <div
+    id="enquiry-success"
+    class="hidden rounded-sm border border-accent/30 bg-white px-6 py-8"
+    role="status"
+    aria-live="polite"
+  >
+    <h3 class="text-xl font-semibold text-ink">{site.contact.successTitle}</h3>
+    <p class="mt-2 text-mute">{site.contact.successMessage}</p>
+  </div>
+
+  <form
+    id="enquiry-form"
+    action={form.action}
+    method="POST"
+    target="enquiry-iframe"
+    novalidate
+    class="space-y-5"
+    data-min-submit-ms={form.minSubmitMs}
+    data-connected={String(form.connected)}
+    data-interest-prefix={String(form.interestPrefix)}
+    data-disconnected-message={site.contact.disconnectedMessage}
+    data-honeypot-name={form.honeypotName}
+  >
+    <div class="sr-only" aria-hidden="true">
+      <label>
+        Leave blank
+        <input type="text" name={form.honeypotName} tabindex="-1" autocomplete="off" />
+      </label>
+    </div>
+
+    <div>
+      <label for="field-name" class="mb-2 block text-sm font-medium text-ink">
+        {fields.name.label}
+      </label>
+      <input
+        id="field-name"
+        name={fields.name.entry}
+        type="text"
+        required={fields.name.required}
+        autocomplete={fields.name.autocomplete}
+        placeholder={fields.name.placeholder}
+        class={inputClass}
+      />
+      <p class="field-error mt-1.5 hidden text-sm text-red-600" data-error-for="field-name"></p>
+    </div>
+
+    <div>
+      <label for="field-phone" class="mb-2 block text-sm font-medium text-ink">
+        {fields.phone.label}
+      </label>
+      <input
+        id="field-phone"
+        name={fields.phone.entry}
+        type="tel"
+        required={fields.phone.required}
+        autocomplete={fields.phone.autocomplete}
+        placeholder={fields.phone.placeholder}
+        class={inputClass}
+      />
+      <p class="field-error mt-1.5 hidden text-sm text-red-600" data-error-for="field-phone"></p>
+    </div>
+
+    <div>
+      <label for="field-email" class="mb-2 block text-sm font-medium text-ink">
+        {fields.email.label}
+      </label>
+      <input
+        id="field-email"
+        name={fields.email.entry}
+        type="email"
+        required={fields.email.required}
+        autocomplete={fields.email.autocomplete}
+        placeholder={fields.email.placeholder}
+        class={inputClass}
+      />
+      <p class="field-error mt-1.5 hidden text-sm text-red-600" data-error-for="field-email"></p>
+    </div>
+
+    <div>
+      <label for="field-interest" class="mb-2 block text-sm font-medium text-ink">
+        {fields.interest.label}
+      </label>
+      <select id="field-interest" required={fields.interest.required} class={inputClass}>
+        <option value="">{fields.interest.placeholder}</option>
+        {interestOptions.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
+      <p class="field-error mt-1.5 hidden text-sm text-red-600" data-error-for="field-interest"></p>
+    </div>
+
+    <div>
+      <label for="field-message" class="mb-2 block text-sm font-medium text-ink">
+        {fields.message.label}
+      </label>
+      <textarea
+        id="field-message"
+        name={fields.message.entry}
+        required={fields.message.required}
+        rows={fields.message.rows}
+        placeholder={fields.message.placeholder}
+        class={inputClass}
+      ></textarea>
+      <p class="field-error mt-1.5 hidden text-sm text-red-600" data-error-for="field-message"></p>
+    </div>
+
+    <p id="form-status" class="hidden text-sm text-red-600" role="alert"></p>
+
+    <button
+      type="submit"
+      id="enquiry-submit"
+      class="rounded-sm bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
+      data-label={site.contact.submitLabel}
+      data-busy-label={site.contact.submittingLabel}
+    >
+      {site.contact.submitLabel}
+    </button>
+  </form>
+</div>
+
+<script>
+  const formEl = document.getElementById('enquiry-form') as HTMLFormElement | null;
+  const iframe = document.getElementById('enquiry-iframe') as HTMLIFrameElement | null;
+  const success = document.getElementById('enquiry-success');
+  const submitBtn = document.getElementById('enquiry-submit') as HTMLButtonElement | null;
+  const statusEl = document.getElementById('form-status');
+  const interestSelect = document.getElementById('field-interest') as HTMLSelectElement | null;
+
+  if (!formEl || !iframe || !success || !submitBtn) {
+    // no-op when markup missing
+  } else {
+    const startedAt = Date.now();
+    const minMs = Number(formEl.dataset.minSubmitMs || 2500);
+    const honeypotName = formEl.dataset.honeypotName || 'website_url';
+    let awaitingResponse = false;
+    let timeoutId = 0;
+    let originalMessage = '';
+
+    const prefill = new URLSearchParams(location.search).get('interest');
+    if (prefill && interestSelect) {
+      const match = Array.from(interestSelect.options).some((option) => option.value === prefill);
+      if (match) interestSelect.value = prefill;
+    }
+
+    function clearErrors() {
+      formEl!.querySelectorAll('.field-error').forEach((el) => {
+        el.classList.add('hidden');
+        el.textContent = '';
+      });
+      statusEl?.classList.add('hidden');
+      if (statusEl) statusEl.textContent = '';
+    }
+
+    function showError(selector: string, message: string) {
+      const el = formEl!.querySelector(`[data-error-for="${selector}"]`);
+      if (el) {
+        el.textContent = message;
+        el.classList.remove('hidden');
+      }
+    }
+
+    function showStatus(message: string) {
+      if (!statusEl) return;
+      statusEl.textContent = message;
+      statusEl.classList.remove('hidden');
+    }
+
+    function resetSubmit() {
+      submitBtn!.disabled = false;
+      submitBtn!.textContent = submitBtn!.dataset.label || 'Send Message';
+    }
+
+    function validate(): boolean {
+      clearErrors();
+      let ok = true;
+      const name = (formEl!.elements.namedItem('entry.750210231') as HTMLInputElement | null)?.value?.trim();
+      const phone = (formEl!.elements.namedItem('entry.2106024227') as HTMLInputElement | null)?.value?.trim();
+      const email = (formEl!.elements.namedItem('entry.846203511') as HTMLInputElement | null)?.value?.trim();
+      const interest = interestSelect?.value;
+      const message = (formEl!.elements.namedItem('entry.1889579180') as HTMLTextAreaElement | null)
+        ?.value?.trim();
+
+      if (!name) {
+        showError('field-name', 'Please enter your name.');
+        ok = false;
+      }
+      if (!phone || !/^(\+91[\s-]?)?[6-9]\d{9}$/.test(phone)) {
+        showError('field-phone', 'Please enter a valid Indian phone number.');
+        ok = false;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showError('field-email', 'Please enter a valid email address.');
+        ok = false;
+      }
+      if (!interest) {
+        showError('field-interest', 'Please choose an interest.');
+        ok = false;
+      }
+      if (!message) {
+        showError('field-message', 'Please enter a message.');
+        ok = false;
+      }
+      return ok;
+    }
+
+    formEl.addEventListener('submit', (event) => {
+      const hp = formEl.querySelector(`input[name="${honeypotName}"]`) as HTMLInputElement | null;
+      if (hp?.value) {
+        event.preventDefault();
+        return;
+      }
+      if (!validate()) {
+        event.preventDefault();
+        return;
+      }
+      if (Date.now() - startedAt < minMs) {
+        event.preventDefault();
+        showStatus('Please take a moment before submitting.');
+        return;
+      }
+
+      const connected = formEl.dataset.connected === 'true';
+      const action = formEl.getAttribute('action') ?? '';
+      if (!connected || !action) {
+        event.preventDefault();
+        showStatus(formEl.dataset.disconnectedMessage || 'Form is not connected yet. Please call or email.');
+        return;
+      }
+
+      const messageEl = formEl.elements.namedItem('entry.1889579180') as HTMLTextAreaElement | null;
+      if (formEl.dataset.interestPrefix === 'true' && messageEl && interestSelect) {
+        originalMessage = messageEl.value;
+        const selectedLabel = interestSelect.options[interestSelect.selectedIndex]?.text ?? '';
+        messageEl.value = `Interest: ${selectedLabel}\n\n${originalMessage}`;
+      }
+
+      awaitingResponse = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = submitBtn.dataset.busyLabel || 'Sending…';
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        if (!awaitingResponse) return;
+        awaitingResponse = false;
+        if (messageEl && originalMessage) messageEl.value = originalMessage;
+        resetSubmit();
+        showStatus('Could not send. Call us or try again.');
+      }, 8000);
+    });
+
+    iframe.addEventListener('load', () => {
+      if (!awaitingResponse) return;
+      awaitingResponse = false;
+      window.clearTimeout(timeoutId);
+      formEl.classList.add('hidden');
+      success.classList.remove('hidden');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+</script>
