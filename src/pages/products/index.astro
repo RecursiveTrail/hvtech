@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsApp from '../../components/WhatsApp.astro';
+import Section from '../../components/ui/Section.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products } from '../../content';
+---
+<BaseLayout title="Our Products — HV Technologies" description="High-voltage test equipment including impulse systems, measurement, facilities, cable testing, and components.">
+  <Header />
+  <main id="main">
+    <Section eyebrow="Catalog" title="Our Products">
+      <div class="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter by category">
+        <button
+          type="button"
+          data-filter="all"
+          aria-pressed="true"
+          class="rounded-sm border border-line bg-white px-3 py-1.5 text-sm font-semibold aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-white"
+        >
+          All
+        </button>
+        {products.categories.map((category) => (
+          <button
+            type="button"
+            data-filter={category.id}
+            aria-pressed="false"
+            class="rounded-sm border border-line bg-white px-3 py-1.5 text-sm font-semibold aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-white"
+          >
+            {category.label}
+          </button>
+        ))}
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {products.items.map((product) => (
+          <div data-category={product.category}>
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </div>
+    </Section>
+  </main>
+  <Footer />
+  <WhatsApp />
+</BaseLayout>
+
+<script>
+  const chips = document.querySelectorAll('[data-filter]');
+  const cards = document.querySelectorAll('[data-category]');
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const filter = chip.getAttribute('data-filter') ?? 'all';
+      chips.forEach((item) => item.setAttribute('aria-pressed', String(item === chip)));
+      cards.forEach((card) => {
+        const match = filter === 'all' || card.getAttribute('data-category') === filter;
+        card.classList.toggle('hidden', !match);
+      });
+    });
+  });
+</script>
