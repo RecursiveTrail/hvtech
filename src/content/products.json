@@ -1,0 +1,154 @@
+{
+  "categories": [
+    { "id": "impulse", "label": "Impulse Systems" },
+    { "id": "measurement", "label": "Measurement" },
+    { "id": "facilities", "label": "Facilities" },
+    { "id": "cable-testing", "label": "Cable Testing" },
+    { "id": "components", "label": "Components" }
+  ],
+  "items": [
+    {
+      "slug": "pd-calibrator",
+      "name": "PD Calibrator",
+      "category": "measurement",
+      "featured": false,
+      "summary": "Handheld battery-operated calibrator for verifying partial discharge test circuits.",
+      "description": "The Partial Discharge Calibrator PDC is a compact, handheld, battery-operated discharge calibrator. It injects a known PD signal into a PD test circuit to allow verification of calibration. It can be used to check any partial discharge detection installation where a PD detector has a measuring frequency up to 1000 kHz. A function switch selects a partial discharge level to be injected into the test circuit. The unit also incorporates a fine frequency control for synchronizing to a multiple of the mains frequency.",
+      "image": "/products/pd-calibrator.webp",
+      "standards": ["IEC 60270"],
+      "specs": []
+    },
+    {
+      "slug": "hvdc-divider",
+      "name": "HVDC Divider",
+      "category": "measurement",
+      "featured": false,
+      "summary": "Resistive high-voltage divider for DC test systems.",
+      "description": "High-voltage (HV) dividers are necessary components in all direct voltage (DC) test systems. They are available in wide ranges of voltage and resistance and used for measurement of DC voltage. The divider consists of the HV arm of resistive voltage dividers, a low-voltage (LV) arm, and a measuring cable.",
+      "image": "/products/hvdc-divider.jpg",
+      "standards": [],
+      "specs": []
+    },
+    {
+      "slug": "rf-shielded-room",
+      "name": "RF Shielded Room",
+      "category": "facilities",
+      "featured": true,
+      "summary": "Faraday cage for low-intensity partial discharge measurement to IEC 60270.",
+      "description": "Electromagnetic field and line-conducted interference needs to be eliminated in order to measure low-intensity partial discharges with a PD background noise level (≤ 1 pC) in accordance with IEC 60270. The effect of electromagnetic field interference caused by radio signals, radar stations, welding arcs, and similar sources can be limited by a shielded room, also known as a Faraday cage. HV Tech supplies shielding rooms for routine and type testing of cable and cable accessories. The design and size of the shielded rooms are determined by the specific application. They are separated into a test and control room, and are equipped with a PD-free lighting system, emergency lighting, and a security loop. The room can optionally be fitted with air-conditioning and a crane.",
+      "image": "/products/rf-shielded-room.webp",
+      "standards": ["IEC 60270"],
+      "specs": []
+    },
+    {
+      "slug": "high-voltage-resistance",
+      "name": "High Voltage Resistance",
+      "category": "impulse",
+      "featured": false,
+      "summary": "Wave-shaping resistance that sets impulse rise time (T1) and fall time (T2).",
+      "description": "The wave-shaping resistance (High Voltage Resistance) is used in an impulse voltage generator to control the rise time (T1) and fall time (T2).",
+      "image": "/products/high-voltage-resistance.webp",
+      "standards": [],
+      "specs": []
+    },
+    {
+      "slug": "multiple-chopping-gap",
+      "name": "Multiple Chopping Gap",
+      "category": "impulse",
+      "featured": false,
+      "summary": "Sphere spark gap for HV measurement checks and chopping, per IEC 60060-2.",
+      "description": "Measuring sphere spark gaps are mainly used for performance checks of high-voltage measurements according to IEC 60060-2:1994. If the measuring sphere spark gap is equipped with a triggering device, it can also be used as a chopping sphere gap. HV Tech supplies horizontal and vertical designs according to the customer's request for measuring peak voltage values.",
+      "image": "/products/multiple-chopping-gap.webp",
+      "standards": ["IEC 60060-2:1994"],
+      "specs": []
+    },
+    {
+      "slug": "impulse-voltage-controller",
+      "name": "Impulse Voltage Controller and Impulse Measuring System",
+      "category": "impulse",
+      "featured": true,
+      "summary": "Control and measurement system for high-voltage impulse testing.",
+      "description": "An impulse voltage controller and measuring system is used to generate and measure high-voltage pulses for testing electrical equipment. The system typically includes an impulse generator, a voltage divider, measurement circuits, and a control unit. It is used to simulate lightning strikes and switching surges to assess the withstand capability of equipment such as transformers and cables.",
+      "image": "/products/impulse-voltage-controller-and-impulse-measuring-system.webp",
+      "standards": [],
+      "specs": []
+    },
+    {
+      "slug": "impulse-voltage-generator",
+      "name": "Impulse Voltage Generator",
+      "category": "impulse",
+      "featured": true,
+      "summary": "Lightning, chopping, and switching impulse test system for HV power equipment.",
+      "description": "The impulse voltage test system simulates lightning impulse, lightning chopping impulse, and switching impulse voltage waveforms across a wide range of voltage and energy, for tests on high-voltage power units. With a steep-wave device the system can test insulators or insulator strings. With minor changes the impulse voltage test system can also be used as an impulse current test system to test surge arresters for residual voltage. The system can be used in industry, research, and training.",
+      "image": "/products/impulse-voltage-generator.webp",
+      "standards": [],
+      "specs": []
+    },
+    {
+      "slug": "metal-tank-resonant-reactor",
+      "name": "Metal Tank Type Resonant Reactor (Variable Inductance)",
+      "category": "cable-testing",
+      "featured": false,
+      "summary": "Grounded-tank variable-inductance reactor for indoor or outdoor HV testing.",
+      "description": "Metal tank type: used as a separate reactor with the tank grounded. These reactors can be placed next to a wall, and can even be placed outdoors, to save space. When placed outdoors, a bushing is used to transmit the high voltage into the lab. A metal tank reactor can also be used in series or in parallel connection. Series connection requires an insulated support. The reactor can be designed with taps and can be used for continuous operation.",
+      "image": "/products/metal-tank-type-resonant-reactor-variable-inductance.webp",
+      "standards": [],
+      "specs": []
+    },
+    {
+      "slug": "heat-cycle-system",
+      "name": "Heat Cycle System",
+      "category": "cable-testing",
+      "featured": true,
+      "summary": "Conductor-induced current heat cycling up to 8000 A for power cable tests.",
+      "description": "The Heat Cycling Test System is designed on the conductor induced current method and is used for delivery, type, and pre-qualification tests of power cable and related accessories. Heating current is up to 8000 A. Special thermocouples measure the temperature of the test object, including the outer sheath, metal shielding layer, and conductor. Temperature signals are transmitted to the control and measuring system via optical fiber. The control and measuring system follows IEC 62067 and IEC 60840. A paperless recorder or IPC is used for measuring and analysis. Measuring points can be increased or decreased to match the customer's needs.",
+      "image": "/products/heat-cycle-system.webp",
+      "standards": ["IEC 62067", "IEC 60840"],
+      "specs": []
+    },
+    {
+      "slug": "hvac-divider",
+      "name": "HVAC Divider",
+      "category": "measurement",
+      "featured": false,
+      "summary": "Capacitive high-voltage divider for AC test systems.",
+      "description": "High-voltage (HV) dividers are necessary components in all alternating voltage (AC) test systems. They are available in wide ranges of voltage and capacitance and used for measurement of voltage. The divider consists of the HV arm of capacitive voltage dividers, a low-voltage (LV) arm, and a measuring cable.",
+      "image": "",
+      "standards": [],
+      "specs": []
+    },
+    {
+      "slug": "trigger-box",
+      "name": "Trigger Box",
+      "category": "impulse",
+      "featured": false,
+      "summary": "Ignition unit for the first stage of an impulse voltage generator.",
+      "description": "This device is used to ignite the first stage of an impulse voltage generator. The pulse strength must be 12–15 kVp.",
+      "image": "/products/trigger-box.webp",
+      "standards": [],
+      "specs": []
+    },
+    {
+      "slug": "shunt",
+      "name": "Shunt",
+      "category": "measurement",
+      "featured": false,
+      "summary": "Low-resistance shunt for current measurement in HV test circuits.",
+      "description": "Shunt resistors are designed with low resistance values to allow a significant portion of the current to flow through them rather than the circuit element they are protecting or measuring.",
+      "image": "/products/shunt.webp",
+      "standards": [],
+      "specs": []
+    },
+    {
+      "slug": "high-voltage-diode",
+      "name": "High Voltage Diode",
+      "category": "components",
+      "featured": false,
+      "summary": "Axial-lead and SMD high-voltage diodes from 2 kV to 20 kV.",
+      "description": "HV Tech offers a complete range of high-voltage diodes. Axial-lead and SMD diodes range from 2 kV to 20 kV. All wafers are doped, diffused, and metalized in-house, with extensive testing to ensure customers receive high-quality diodes.",
+      "image": "/products/high-voltage-diode.webp",
+      "standards": [],
+      "specs": []
+    }
+  ]
+}
