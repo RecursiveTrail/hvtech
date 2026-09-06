@@ -1,9 +1,10 @@
 ---
 import { site } from '../content';
+import { withBase } from '../lib/with-base';
 ---
-<a href="/" class="flex items-center gap-2.5 text-white no-underline">
+<a href={withBase('/')} class="flex items-center gap-2.5 text-white no-underline">
   <img
-    src={site.brand.logo}
+    src={withBase(site.brand.logo)}
     alt=""
     width="40"
     height="40"

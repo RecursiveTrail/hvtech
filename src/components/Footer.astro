@@ -1,5 +1,6 @@
 ---
 import { contact, services, site } from '../content';
+import { withBase } from '../lib/with-base';
 
 const quickLinks = [
   ...site.footer.quickLinks.slice(0, 1),
@@ -38,7 +39,7 @@ const quickLinks = [
       <ul class="mt-3 space-y-2 text-sm">
         {quickLinks.map((link) => (
           <li>
-            <a href={link.href} class="text-white/80 hover:text-white">{link.label}</a>
+            <a href={withBase(link.href)} class="text-white/80 hover:text-white">{link.label}</a>
           </li>
         ))}
       </ul>

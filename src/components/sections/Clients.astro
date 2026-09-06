@@ -1,12 +1,13 @@
 ---
 import Section from '../ui/Section.astro';
 import { clients } from '../../content';
+import { withBase } from '../../lib/with-base';
 ---
 <Section eyebrow={clients.eyebrow} title={clients.title}>
   <div class="grid grid-cols-2 items-center gap-4 sm:grid-cols-3 lg:grid-cols-5">
     {clients.items.map((client) => (
       <div class="flex min-h-24 items-center justify-center rounded-sm border border-line bg-white p-4">
-        <img src={client.image} alt={client.name} loading="lazy" class="max-h-14 w-auto object-contain" />
+        <img src={withBase(client.image)} alt={client.name} loading="lazy" class="max-h-14 w-auto object-contain" />
       </div>
     ))}
   </div>

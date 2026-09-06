@@ -6,6 +6,7 @@ import WhatsApp from '../components/WhatsApp.astro';
 import Section from '../components/ui/Section.astro';
 import CtaBand from '../components/sections/CtaBand.astro';
 import { about } from '../content';
+import { withBase } from '../lib/with-base';
 ---
 <BaseLayout title={about.seoTitle} description={about.seoDescription}>
   <Header />
@@ -13,7 +14,7 @@ import { about } from '../content';
     <Section eyebrow={about.eyebrow} title={about.title} headingLevel={1}>
       <div class="grid items-center gap-10 md:grid-cols-2">
         <img
-          src={about.photo}
+          src={withBase(about.photo)}
           alt={about.photoAlt}
           class="w-full rounded-sm object-cover"
         />

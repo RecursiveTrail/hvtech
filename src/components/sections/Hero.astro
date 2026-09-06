@@ -1,5 +1,6 @@
 ---
 import { hero } from '../../content';
+import { withBase } from '../../lib/with-base';
 
 const accentPhrase = hero.accentPhrase;
 const hasAccent = hero.headline.includes(accentPhrase);
@@ -9,7 +10,7 @@ const [headlineLead, headlineRest = ''] = hasAccent
 ---
 <section class="relative flex min-h-screen items-center bg-ink pt-24 text-white">
   <img
-    src={hero.image}
+    src={withBase(hero.image)}
     alt={hero.imageAlt}
     width="2048"
     height="1492"
@@ -28,13 +29,13 @@ const [headlineLead, headlineRest = ''] = hasAccent
     </p>
     <div class="mt-8 flex flex-wrap gap-3">
       <a
-        href={hero.cta.href}
+        href={withBase(hero.cta.href)}
         class="rounded-sm bg-accent px-5 py-3 text-sm font-semibold hover:bg-accent-hover"
       >
         {hero.cta.label}
       </a>
       <a
-        href={hero.secondaryCta.href}
+        href={withBase(hero.secondaryCta.href)}
         class="rounded-sm border border-white/30 px-5 py-3 text-sm font-semibold hover:bg-white/10"
       >
         {hero.secondaryCta.label}

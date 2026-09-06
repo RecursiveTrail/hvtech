@@ -1,10 +1,11 @@
 ---
 import Section from '../ui/Section.astro';
 import { home } from '../../content';
+import { withBase } from '../../lib/with-base';
 ---
 <Section eyebrow={home.cta.eyebrow} title={home.cta.title} tone="dark">
   <a
-    href={home.cta.href}
+    href={withBase(home.cta.href)}
     class="inline-block rounded-sm bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-hover"
   >
     {home.cta.label}

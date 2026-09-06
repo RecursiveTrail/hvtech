@@ -1,5 +1,6 @@
 ---
 import { home, type Service } from '../content';
+import { withBase } from '../lib/with-base';
 import Section from './ui/Section.astro';
 
 interface Props {
@@ -44,7 +45,7 @@ const { service } = Astro.props;
   <Section eyebrow={home.cta.eyebrow} title={home.cta.title} tone="dark">
     <p class="max-w-3xl text-base leading-relaxed text-white/80">{service.cta.text}</p>
     <a
-      href={`/contact-us?interest=${service.slug}`}
+      href={withBase(`/contact-us?interest=${service.slug}`)}
       class="mt-6 inline-block rounded-sm bg-accent px-5 py-3 text-sm font-semibold text-white hover:bg-accent-hover"
     >
       {service.cta.label}

@@ -1,13 +1,14 @@
 ---
 import Section from '../ui/Section.astro';
 import { projects } from '../../content';
+import { withBase } from '../../lib/with-base';
 ---
 <Section id="projects" eyebrow={projects.eyebrow} title={projects.title} tone="light">
   <div class="grid gap-8 md:grid-cols-3">
     {projects.items.map((project) => (
       <article>
         <img
-          src={project.image}
+          src={withBase(project.image)}
           alt={project.name}
           loading="lazy"
           class="aspect-[4/3] w-full rounded-sm object-cover"

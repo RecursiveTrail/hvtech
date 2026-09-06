@@ -6,6 +6,7 @@ import WhatsApp from '../components/WhatsApp.astro';
 import Section from '../components/ui/Section.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { contact } from '../content';
+import { withBase } from '../lib/with-base';
 
 const person = contact.person;
 ---
@@ -16,7 +17,7 @@ const person = contact.person;
       <div class="mx-auto grid max-w-6xl items-start gap-10 px-4 md:grid-cols-2">
         <div>
           <img
-            src={contact.image}
+            src={withBase(contact.image)}
             alt={contact.imageAlt}
             class="w-full rounded-sm object-cover"
           />
