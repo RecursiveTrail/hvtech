@@ -1,0 +1,14 @@
+---
+import { site } from '../content';
+---
+<a href="/" class="flex items-center gap-2.5 text-white no-underline">
+  <img
+    src={site.brand.logo}
+    alt=""
+    width="40"
+    height="40"
+    class="size-10 rounded-full object-cover"
+  />
+  <span class="hidden text-sm font-extrabold tracking-wide md:inline">{site.brand.name}</span>
+  <span class="text-sm font-extrabold tracking-wide md:hidden">{site.brand.shortName}</span>
+</a>

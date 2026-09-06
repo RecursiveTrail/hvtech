@@ -1,0 +1,21 @@
+{
+  "featured": {
+    "eyebrow": "Equipment",
+    "title": "Featured Equipment"
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "What we do",
+    "learnMoreLabel": "Learn more"
+  },
+  "cta": {
+    "eyebrow": "Contact",
+    "title": "Talk to our engineers",
+    "label": "Get a Quote",
+    "href": "/contact-us"
+  },
+  "why": {
+    "eyebrow": "Why us",
+    "title": "Why choose HV Tech?"
+  }
+}

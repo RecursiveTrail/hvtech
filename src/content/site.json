@@ -1,0 +1,30 @@
+{
+  "brand": {
+    "name": "HV Technologies",
+    "shortName": "HV TECH",
+    "logo": "/hvcirclelogo.jpg"
+  },
+  "seo": {
+    "title": "HV Technologies — High-Voltage Test Systems",
+    "description": "We deliver innovative high-voltage electrical and energy solutions that empower businesses to grow, scale, and achieve maximum efficiency in the modern industrial landscape."
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Products", "href": "/products" },
+    { "label": "About Us", "href": "/about-us" },
+    { "label": "Contact", "href": "/contact-us" }
+  ],
+  "navServicesLabel": "Services",
+  "quoteCta": { "label": "Get a Quote", "href": "/contact-us" },
+  "footer": {
+    "blurb": "We deliver innovative electrical and energy solutions that empower businesses to grow, scale, and achieve efficiency in the modern industrial landscape.",
+    "copyright": "© 2026 HV Technologies. All rights reserved.",
+    "contactHeading": "Contact",
+    "linksHeading": "Quick Links",
+    "quickLinks": [
+      { "label": "About", "href": "/about-us" },
+      { "label": "Products", "href": "/products" },
+      { "label": "Contact", "href": "/contact-us" }
+    ]
+  }
+}

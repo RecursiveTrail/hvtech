@@ -1,4 +1,15 @@
 {
+  "page": {
+    "eyebrow": "Catalog",
+    "title": "Our Products",
+    "seoTitle": "Our Products — HV Technologies",
+    "seoDescription": "High-voltage test equipment including impulse systems, measurement, facilities, cable testing, and components.",
+    "allLabel": "All",
+    "backLabel": "Back to products",
+    "standardsHeading": "Standards",
+    "specsHeading": "Specifications",
+    "enquireLabel": "Enquire"
+  },
   "categories": [
     { "id": "impulse", "label": "Impulse Systems" },
     { "id": "measurement", "label": "Measurement" },

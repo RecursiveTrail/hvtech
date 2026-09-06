@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsApp from '../components/WhatsApp.astro';
+import Section from '../components/ui/Section.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+import { about } from '../content';
+---
+<BaseLayout title={about.seoTitle} description={about.seoDescription}>
+  <Header />
+  <main id="main">
+    <Section eyebrow={about.eyebrow} title={about.title} headingLevel={1}>
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <img
+          src={about.photo}
+          alt={about.photoAlt}
+          class="w-full rounded-sm object-cover"
+        />
+        <div>
+          {about.paragraphs.map((paragraph) => (
+            <p class="mt-4 text-sm leading-relaxed text-mute first:mt-0">{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </Section>
+    <CtaBand />
+  </main>
+  <Footer />
+  <WhatsApp />
+</BaseLayout>

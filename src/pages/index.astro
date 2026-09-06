@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsApp from '../components/WhatsApp.astro';
+import Hero from '../components/sections/Hero.astro';
+import FeaturedProducts from '../components/sections/FeaturedProducts.astro';
+import Projects from '../components/sections/Projects.astro';
+import ServicesTeaser from '../components/sections/ServicesTeaser.astro';
+import AboutTeaser from '../components/sections/AboutTeaser.astro';
+import Clients from '../components/sections/Clients.astro';
+import Reviews from '../components/sections/Reviews.astro';
+import CtaBand from '../components/sections/CtaBand.astro';
+---
+<BaseLayout>
+  <Header overlay />
+  <main id="main">
+    <Hero />
+    <FeaturedProducts />
+    <Projects />
+    <ServicesTeaser />
+    <AboutTeaser />
+    <Clients />
+    <Reviews />
+    <CtaBand />
+  </main>
+  <Footer />
+  <WhatsApp />
+</BaseLayout>

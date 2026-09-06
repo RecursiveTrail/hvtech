@@ -79,8 +79,15 @@ No dark-mode toggle. The home hero and footer are dark; catalog, about, services
 
 ```
 src/content/
-  site.json       # brand, nav, hero, about, projects, clients, reviews, footer
-  products.json   # already drafted and approved
+  site.json       # brand, seo, nav, quote CTA, footer
+  hero.json       # home hero
+  about.json      # about page and teaser
+  home.json       # featured / services / CTA / why-us headings
+  projects.json   # delivered projects
+  clients.json    # client logos
+  reviews.json    # testimonials
+  contact.json    # addresses, phones, map, form success copy
+  products.json   # catalog categories, items, page labels
   services.json   # the three service pages
   form.json       # Google Form action, entry IDs, field labels
   index.ts        # typed exports
@@ -128,7 +135,16 @@ Copy is the current page content, typos cleaned.
 
 Same shape as RecursiveTrail: `action`, `method: "POST"`, `minSubmitMs: 2500`, `honeypotName: "website_url"`, and a `fields` map whose keys are `entry.<id>` values.
 
-Until HV Tech provides a live Google Form, `action` and `entry.*` IDs are placeholders in `form.json`. The UI still validates and shows the success path against a dummy form only after real IDs are pasted. Implementation must not invent a second submission backend.
+The live form is [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLSfMZI1JYF9MdcAHMdlkNm9HkooXY8KmnBjYyZ7cBBjMxQ7uqQ/viewform). `form.json` is connected:
+
+| UI field | Google `entry` |
+|---|---|
+| Name | `entry.750210231` |
+| Phone | `entry.2106024227` |
+| Email | `entry.846203511` |
+| Message | `entry.1889579180` |
+
+The Google Form has no Interest question. The site still shows an Interest dropdown (products + three services + “General enquiry”). On submit, the script prefixes the message with `Interest: {label}` and posts that combined text to `entry.1889579180`. Do not POST to RecursiveTrail’s form. Implementation must not invent a second submission backend.
 
 Form fields (user-facing):
 
@@ -137,7 +153,7 @@ Form fields (user-facing):
 | Name | text | yes | |
 | Phone | tel | yes | Indian numbers accepted; 10 digits or `+91…` |
 | Email | email | yes | |
-| Interest | select | yes | All product names + three services + “General enquiry” |
+| Interest | select | yes | Site-only; prefixed into Message |
 | Message | textarea | yes | |
 
 Prefill: `/contact-us?interest=<slug>` selects the matching Interest option. Product Enquire and service CTAs use this.
@@ -149,7 +165,7 @@ Prefill: `/contact-us?interest=<slug>` selects the matching Interest option. Pro
 1. Header
 2. Cinematic hero — headline “Powering the Future of Industrial Solutions”, current pitch paragraph, View Equipment + Get a Quote
 3. Featured equipment — four featured products → `/products/[slug]`
-4. Delivered projects — the three current homepage case studies (500kVp/25KJ, RF Shielded Room, 300kVp/7.5KJ) with their existing write-ups and photos (`chopping-cable.jpg`, `rf_shielding.jpg`, `imsystem.jpg`). These stay in `site.json`, not `products.json`, because they are job stories, not catalog SKUs.
+4. Delivered projects — the three current homepage case studies (500kVp/25KJ, RF Shielded Room, 300kVp/7.5KJ) with their existing write-ups and photos (`chopping-cable.jpg`, `rf_shielding.jpg`, `imsystem.jpg`). These stay in `projects.json`, not `products.json`, because they are job stories, not catalog SKUs.
 5. Services — three cards → service routes
 6. About teaser — cleaned about paragraph + `emp-work.jpg` → `/about-us`
 7. Clients — nine logos from the current site
@@ -218,7 +234,7 @@ No React islands unless a filter chip or mobile menu is cleaner as a few lines o
 ## SEO and chrome
 
 - Per-page title: `{Page} — HV Technologies` (home: `HV Technologies — High-Voltage Test Systems`).
-- Meta description from `site.json` / product summary / service tagline.
+- Meta description from `site.json` / `about.json` / `contact.json` / product summary / service tagline.
 - Favicon from current `/favicon.ico` and circular logo.
 - `robots.txt` + sitemap.
 - Footer credit: “© 2026 HV Technologies. All rights reserved.” Do not keep “Developed by mind2machine Softwares Pvt Ltd”.
@@ -234,7 +250,7 @@ Still copy into `public/` during implementation:
 - Projects: `chopping-cable.jpg`, `rf_shielding.jpg`, `imsystem.jpg`
 - Clients: `svasca-industries.jpg`, `logo.png`, `logo (1).png`, `logo (2).png`, `fhgtnjghjhgmh.png`, `Amit_Test_and_Calibration_Centre_-_labgo.png`, `images.png`, `startLabClient.jpg`, `IMP_Logo.png`
 
-Rename client files to stable slugs in `public/clients/` and point `site.json` at the new names. Keep originals only if a rename would lose a needed extension.
+Rename client files to stable slugs in `public/clients/` and point `clients.json` at the new names. Keep originals only if a rename would lose a needed extension.
 
 ## Out of scope
 

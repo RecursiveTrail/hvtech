@@ -1,0 +1,11 @@
+{
+  "eyebrow": "Reviews",
+  "title": "What clients say",
+  "items": [
+    { "name": "Saurabh Agrahari", "quote": "HV Tech provided outstanding service and high-quality products. Highly recommend!", "stars": 5, "image": "/clients/client-7.png" },
+    { "name": "K.P Singh", "quote": "Great experience! The team was very professional and responsive.", "stars": 4, "image": "/clients/client-4.png" },
+    { "name": "Sudhir Poswal", "quote": "Excellent products and support. Their HV Test Systems are top-notch!", "stars": 5, "image": "/clients/svasca.jpg" },
+    { "name": "Rakesh Gupta", "quote": "Good experience overall. The team helped us choose the right solutions.", "stars": 4, "image": "/clients/client-6.png" },
+    { "name": "Pradep Jain", "quote": "Good experience overall. The team helped us choose the right solutions.", "stars": 4, "image": "/clients/startlab.jpg" }
+  ]
+}

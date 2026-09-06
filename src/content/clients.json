@@ -1,0 +1,15 @@
+{
+  "eyebrow": "Clients",
+  "title": "Who we work with",
+  "items": [
+    { "name": "Svasca Industries", "image": "/clients/svasca.jpg" },
+    { "name": "Client 4", "image": "/clients/client-4.png" },
+    { "name": "Client 5", "image": "/clients/client-5.png" },
+    { "name": "Client 6", "image": "/clients/client-6.png" },
+    { "name": "Client 7", "image": "/clients/client-7.png" },
+    { "name": "Amit Test and Calibration Centre", "image": "/clients/amit-lab.png" },
+    { "name": "Client 9", "image": "/clients/client-9.png" },
+    { "name": "StartLab", "image": "/clients/startlab.jpg" },
+    { "name": "IMP", "image": "/clients/imp.png" }
+  ]
+}
